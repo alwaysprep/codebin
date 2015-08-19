@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'authors',
     'gists',
     'snippets',
+    'comments',
 
 )
 
