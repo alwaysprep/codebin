@@ -6,7 +6,7 @@ from gists.models import Gist
 
 class Comment(models.Model):
     gist = models.ForeignKey(Gist)
-    author = models.OneToOneField(Author)
+    author = models.ForeignKey(Author)
     text = models.TextField()
 
     def __str__(self):
