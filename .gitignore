@@ -64,3 +64,9 @@ target/
 
 # MacOs
 .DS_Store
+
+# Ignore bower components.
+bower_components
+
+# Media Files
+/media/
