@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('comments', '0001_initial'),
+        ('authors', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='comment',
-            name='author',
-            field=models.ForeignKey(to='authors.Author'),
+            model_name='author',
+            name='image',
+            field=models.ImageField(null=True, upload_to='', blank=True),
         ),
     ]

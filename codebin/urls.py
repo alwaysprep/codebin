@@ -13,9 +13,23 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import include, url, patterns
 from django.contrib import admin
+from django.views.generic import TemplateView
+from authors.views import author_login, author_logout
+from django.conf import settings
+from gists.views import home
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', home, name="index"),
+    url(r'^author/', include('authors.urls')),
+    url(r'^login/', author_login, name="login"),
+    url(r'^logout/', author_logout, name="logout"),
+
 ]
+
+
+urlpatterns += patterns('',
+            (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+                    'document_root': settings.MEDIA_ROOT}))
