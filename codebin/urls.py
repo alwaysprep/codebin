@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^author/', include('authors.urls')),
     url(r'^login/', author_login, name="login"),
     url(r'^logout/', author_logout, name="logout"),
+    url(r'^gist/', include('gists.urls')),
 
 ]
 
