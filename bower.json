@@ -1,0 +1,23 @@
+{
+  "name": "codebin",
+  "description": "Code Sharing WebApp",
+  "version":  "1.0.0",
+  "dependencies": {
+    "jquery": "~1.11.3",
+    "bootstrap": "3.3.5",
+    "ace-builds": "1.2.0"
+  },
+  "authors": [
+    {
+      "name": "Oguzhan Sagoglu",
+      "email": "oguzhansagoglu@std.sehir.edu.tr",
+      "homepage": "http://mycsblog.com"
+     },
+    {
+      "name": "Cem Cevik",
+      "email": "cem@cemcevik.me",
+      "homepage": "http://cemcevik.me"
+    }
+  ],
+  "license": "GPL-2.0"
+}
