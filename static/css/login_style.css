@@ -1,0 +1,238 @@
+@import url(http://fonts.googleapis.com/css?family=Pacifico&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
+
+body {
+    background-color: rgba(42, 38, 38, 1);
+}
+
+.row {
+    margin: 0 auto;
+}
+
+img {
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.row .btn {
+    float: right;
+    margin-top: 20px;
+    margin-right: 40px;
+    background-color: transparent;
+    color: white;
+}
+
+.row .btn:hover {
+    background-color: #ea1c4e;
+    color: white;
+    -webkit-transition: background-color 500ms linear;
+    -moz-transition: background-color 500ms linear;
+    -o-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+
+.faruk .btn:hover {
+    background-color: #ea1c4e;
+    -webkit-transition: background-color 500ms linear;
+    -moz-transition: background-color 500ms linear;
+    -o-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+
+.row .btn:hover {
+    background-color: #ea1c4e;
+}
+
+.btn h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    line-height: 5px;
+    vertical-align: middle;
+    margin-top: 11px;
+    line-height: 10px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #ea1c4e;
+    border: 1px solid #ea1c4e;
+}
+
+.btn {
+    background-color: #EC3360;
+    border: 1px solid #EC3360;
+    margin-top: 32px;
+}
+
+.container {
+}
+
+.a {
+    margin-top: 50px;
+    background-color: transparent;
+    color: #BDC3C7;
+}
+
+.a:focus {
+    border: 1px solid #1ABC9C;
+}
+
+.form-control:focus {
+    border-color: #1ABC9C;
+}
+
+.form-control {
+    height: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #ccc;
+    margin-top: 50px;
+}
+
+#sekil {
+    font-family: Pacifico;
+    color: rgb(205, 32, 42);
+    display: inline;
+}
+
+#sifre {
+    margin-top: 30px;
+}
+
+.container .btn-block {
+    margin-right: 0;
+    margin-top: 30px;
+}
+
+@media (min-width: 1200px) {
+    .col-md-5 {
+        margin-left: 340px;
+    }
+}
+
+@media (min-width: 990px) and (max-width: 1200px) {
+    .col-md-5 {
+        margin-left: 300px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .col-md-6 {
+        margin-left: 300px;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    .row {
+        margin: 0 auto;
+    }
+
+    img {
+        height: 50px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+    .row .btn {
+        float: right;
+        margin-top: 20px;
+        margin-right: 40px;
+        background-color: transparent;
+        color: white;
+    }
+
+    .row .btn:hover {
+        background-color: #ea1c4e;
+    }
+
+    .btn h1 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        text-align: center;
+        line-height: 5px;
+        vertical-align: middle;
+        margin-top: 11px;
+        line-height: 10px;
+        margin-top: 10px;
+    }
+
+    .btn:hover {
+        background-color: #ea1c4e;
+        border: 1px solid #ea1c4e;
+    }
+
+    .btn {
+        background-color: #EC3360;
+        border: 1px solid #EC3360;
+        margin-top: 32px;
+    }
+
+    .container {
+    }
+
+    .a {
+        margin-top: 50px;
+        background-color: transparent;
+        color: #BDC3C7;
+    }
+
+    .a:focus {
+        border: 1px solid #1ABC9C;
+    }
+
+    .form-control:focus {
+        border-color: #1ABC9C;
+    }
+
+    h1 {
+        text-align: center;
+        color: #ccc;
+        margin-top: 50px;
+    }
+
+    #sekil {
+        font-family: Pacifico;
+        color: rgb(205, 32, 42);
+        display: inline;
+    }
+
+    #sifre {
+        margin-top: 30px;
+    }
+
+    .container .btn-block {
+        margin-right: 0;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 360px) {
+
+}
+
+/* iphne 5*/
+@media (max-width: 400px) {
+
+}
+
+/* iphone 4 */
+@media (max-height: 480px) and (min-height: 480px) {
+
+}
+
+/* 6+ */
+@media (max-height: 736px) and (min-height: 736px) {
+
+}
+
+/* 6 */
+@media (max-height: 667px) and (min-height: 667px) {
+
+}
