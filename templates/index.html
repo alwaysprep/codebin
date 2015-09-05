@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeBin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- Site CSS-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="row faruk" id="logo">
+        <img src="{% static 'img/Logo.svg' %}" alt="">
+        <a href="{% url "login" %}">
+            <button type="button" class="btn btn-default" id="button" aria-label="Left Align">
+                <span aria-hidden="true"><h1>Log In</h1></span>
+            </button>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <h1>
+                <span id="sekil">
+                    <span class="maruk">&lt;</span>
+                    Codebin
+                </span>
+                code editing and sharing web platform
+                <span class="maruk">/&gt;</span>
+            </h1>
+        </div>
+    </div>
+
+    <div class="col-xs-5"></div>
+    <button type="button" class="btn btn-default" id="button" aria-label="Left Align">
+        <a href="{% url "login" %}"><span aria-hidden="true"><h1>Start To Type</h1></span></a>
+    </button>
+    
+    <div class="row navbar-fixed-bottom hidden-xs hidden-sm">
+            <img src="{% static "img/bg.png" %}" class="img-responsive img-rounded" alt="Responsive image"/>
+    </div>
+</body>
+</html>

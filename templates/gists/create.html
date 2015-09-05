@@ -1,0 +1,150 @@
+{% load staticfiles %}
+
+<html>
+<head>
+    <link href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/kullanici_style.css' %}" rel="stylesheet">
+    <script src="{% static 'bower_components/ace-builds/src-min/ace.js' %}" type="text/javascript"
+            charset="utf-8"></script>
+    <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="errors">
+                        {% for field in gist_form %}
+                            {% if field.errors %}
+                                <p>
+                                    {{ field.label_tag }}
+                                    {% for error in field.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% for field in snippet_form %}
+                            {% if field.errors %}
+                                <p>
+                                    {{ field.label_tag }}
+                                    {% for error in field.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row header">
+
+        <form id="form" method="post">{% csrf_token %}
+
+
+            <div class="col-lg-1 col-md-1 hidden-xs">
+                <img src="{% static 'img/Logo.svg' %}" alt="">
+            </div>
+
+            <select id="select" name="title">
+                {% for gi in gists %}
+                    <option {% if gi.title == gist.title %}selected{% endif %}>{{ gi.title }}</option>
+                {% endfor %}
+            </select>
+
+            <input id="input" type="text" style="display:none">
+            <a href="#">
+                <span id="plus" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </a>
+            <button type="submit" style="display:none">submit</button>
+
+
+            <select id="selectt" name="file_name">
+                {% for snip in snippets %}
+                    <option {% if snip.file_name == snippet.file_name %}selected{% endif %}>{{ snip }}</option>
+                {% endfor %}
+            </select>
+
+
+            <input id="inputt" type="text" style="display:none">
+            <a href="#">
+                <span id="pluss" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </a>
+            <button type="submit" style="display:none">submit</button>
+
+
+    </div>
+    <div class="fill">
+        <div class="row navbar">
+            <div class="div a">
+                <a href="#">
+            <span class="glyphicon glyphicon-user resim" aria-hidden="true">
+            </span></a>
+                <a id="a">
+                    <span class="glyphicon glyphicon-cog doner" aria-hidden="true"></span></a>
+                <button type="submit" class="save">
+                    <span class="glyphicon  glyphicon-floppy-disk" aria-hidden="true"></span></button>
+                <a href="{% url "logout" %}">
+                    <span class="glyphicon glyphicon-log-out resim" aria-hidden="true"></span></a>
+            </div>
+
+            <div class="settings">
+                <h4>Language</h4>
+                <select id="id_language" name="language" class="secim">
+                    {% for lang in languages %}
+                        <option {% if lang == snippet.language %}selected{% endif %}>{{ lang }}</option>
+                    {% endfor %}
+                </select>
+
+                <h4>Is Private</h4>
+                <input id="secim" name="isPrivate" type="checkbox" {% if gist.isPrivate %}checked{% endif %}>
+
+
+                <h4>Theme</h4>
+                <select id="id_theme" name="theme" class="secim">
+                    {% for theme in themes %}
+                        <option {% if theme == gist.theme %}selected{% endif %}>{{ theme }}</option>
+                    {% endfor %}
+                </select>
+                <h4>Description</h4>
+                <textarea cols="40" id="des" name="description" placeholder="description">{{ gist.description }}</textarea>
+
+            </div>
+            <div class="ace">
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static "js/create_gist.js" %}"></script>
+
+
+    <div id="editor" placeholder="Snippet Code">{{ snippet.text }}</div>
+    <textarea id="editorr" style="display:none;" name="text">{{ snippet.text }}</textarea>
+
+
+    </br>
+
+
+    </form>
+
+</body>
+<script src="{% static "js/create_gist_ace.js" %}"></script>
+
+</html>

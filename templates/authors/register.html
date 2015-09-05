@@ -1,0 +1,99 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeBin | Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/signin_style.css' %}" rel="stylesheet">
+    <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+</head>
+
+<body>
+<div class="row faruk" id="logo">
+    <a href="{% url 'index' %}">
+        <img src="{% static 'img/logo.svg' %}" alt="">
+    </a>
+    <a href="{% url "index" %}">
+        <button type="button" class="btn btn-default" id="button" aria-label="Left Align">
+            <span aria-hidden="true">
+                <h1>Log In</h1>
+            </span>
+        </button>
+    </a>
+</div>
+<div class="row">
+
+    <div class="container">
+        <div class="col-md-5 col-md-offset-2">
+            <h1>Discover The
+                <span id="sekil">CodeBin</span>
+            </h1>
+
+
+
+            {% for field in user_form %}
+                {% if field.errors %}
+                    {{ field.label_tag }}
+                    {% for error in field.errors %}
+                        {{ error }}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+
+            <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+
+                <input id="id_email" name="email" type="email" class="form-control a" placeholder="E-Mail"/>
+                <input id="id_username" name="username" type="text" class="form-control a b" placeholder="Username"/>
+                <input id="id_password1" name="password1" type="password" class="form-control a d"
+                       placeholder="Password" required/>
+                <input id="id_password2" name="password2" type="password" class="form-control a c"
+                       placeholder="Password Conf." required/>
+
+                <div class="input-group">
+                            <span class="input-group-btn">
+                                <span class="btn btn-primary btn-file">
+                                    Add Image&hellip; <input id="id_image" name="image" type="file" multiple>
+                                </span>
+                            </span>
+                    <input type="text" class="form-control" readonly>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block btn">Submit</button>
+                <br>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).on('change', '.btn-file :file', function () {
+        var input = $(this),
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [numFiles, label]);
+    });
+
+    $(document).ready(function () {
+        $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                    log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+            if (input.length) {
+                input.val(log);
+            } else {
+                if (log) alert(log);
+            }
+
+        });
+    });
+</script>
+
+</body>
+</html>
